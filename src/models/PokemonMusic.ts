@@ -23,10 +23,7 @@ export type PokemonMusicCreationAttributes = Optional<
   'id' | 'createdAt' | 'updatedAt'
 >;
 
-export class PokemonMusic extends Model<
-  PokemonMusicAttributes,
-  PokemonMusicCreationAttributes
-> {
+export class PokemonMusic extends Model<PokemonMusicAttributes, PokemonMusicCreationAttributes> {
   declare id: number;
   declare title: string;
   declare composer: string;

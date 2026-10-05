@@ -1,9 +1,5 @@
 import { Request, Response } from 'express';
-import {
-  PokemonMusic,
-  MUSIC_CATEGORIES,
-  MusicCategory,
-} from '../models/PokemonMusic';
+import { PokemonMusic, MUSIC_CATEGORIES, MusicCategory } from '../models/PokemonMusic';
 
 interface MusicInput {
   title: string;
@@ -31,8 +27,7 @@ function validateBody(body: unknown): ValidationResult {
     return { error: 'Corpo da requisição inválido.' };
   }
 
-  const { title, composer, game, generation, category, duration } =
-    body as Record<string, unknown>;
+  const { title, composer, game, generation, category, duration } = body as Record<string, unknown>;
 
   const required = { title, composer, game, generation, category, duration };
   const missing = Object.entries(required)
@@ -47,7 +42,12 @@ function validateBody(body: unknown): ValidationResult {
     return { error: 'title, composer e game devem ser textos não vazios.' };
   }
 
-  if (typeof generation !== 'number' || !Number.isInteger(generation) || generation < 1 || generation > 9) {
+  if (
+    typeof generation !== 'number' ||
+    !Number.isInteger(generation) ||
+    generation < 1 ||
+    generation > 9
+  ) {
     return { error: 'generation deve ser um número inteiro entre 1 e 9.' };
   }
 
