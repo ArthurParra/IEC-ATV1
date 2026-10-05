@@ -1,0 +1,2 @@
+echo "Husky: executando lint, formatação e checagem de tipos..."
+pnpm lint && pnpm format:check && pnpm typecheck
